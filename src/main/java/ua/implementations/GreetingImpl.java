@@ -49,6 +49,10 @@ public class GreetingImpl implements Greeting {
 		LOGGER.info("Return value: " + greet);
 		return greet;
 	}
+	
+	public String greet() {
+		return greet(LocalTime.now());
+	}
 
 	private String getPartOfDay(LocalTime localTime) {
 		LOGGER.info("Input parameters: localTime = " + localTime);
