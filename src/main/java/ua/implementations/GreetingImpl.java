@@ -25,7 +25,7 @@ public class GreetingImpl implements Greeting {
 		DAY_PARTS.put(LocalTime.of(9, 0), "morning");
 		DAY_PARTS.put(LocalTime.of(19, 0), "day");
 		DAY_PARTS.put(LocalTime.of(23, 0), "evening");
-		DAY_PARTS.put(LocalTime.of(23, 59), "night");
+		DAY_PARTS.put(LocalTime.of(23, 59, 59), "night");
 	}
 
 	public GreetingImpl(Locale locale) {
@@ -57,6 +57,9 @@ public class GreetingImpl implements Greeting {
 	private String getPartOfDay(LocalTime localTime) {
 		LOGGER.info("Input parameters: localTime = " + localTime);
 		for (LocalTime time : DAY_PARTS.keySet()) {
+			System.out.println(localTime);
+			System.out.println(time);
+			System.out.println(localTime.compareTo(time));
 			if (localTime.compareTo(time) <= 0) {
 				String dayPart = DAY_PARTS.get(time);
 				LOGGER.info("Return value: " + dayPart);
